@@ -17,6 +17,7 @@ class Plot:
         self.flag = '.'
         self.revealed = False
 
+    ''' Returns the value of the indicator based on visibility'''
     def getIndicator( self, trueSight = False ):
         if trueSight == True :
             return self.indicator
@@ -26,22 +27,24 @@ class Plot:
             else :
                 return c_covered
 
+    ''' Set the value of the plot to $ind '''
     def setIndicator( self, ind = c_empty ):
         if ind == '0' :
             self.indicator = c_empty
         else :
             self.indicator = ind
 
+    ''' Set the value of the plot to MINE '''
     def setMine( self ):
         self.indicator = c_mine
 
+    ''' Change the flag state of a plot '''
     def toggleFlag( self ):
         if self.flag == '' :
             self.flag = c_flag
         else :
             self.flag = ''
-            
+
+    ''' Reveal the plot to the user  (no effect when trueSight is active)'''
     def revealPlot( self ):
         self.revealed = True
-            
-    
